@@ -779,6 +779,21 @@ a{
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
+
+  body {
+    height: 220vh;
+    width: 100%;
+    display: flex;
+    color: white;
+    overflow-x: hidden;
+    align-items: center;
+    flex-direction: column;
+    background: url("./media/beach.jpg") no-repeat center center;
+    background-size: 4050%;
+    position: relative;
+  }
+
+  
 }
 
 @media screen and (max-width: 880px) {
