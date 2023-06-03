@@ -203,7 +203,7 @@ function Dashboard() {
           <div className="pair">
             <div className="card">
               <h2>Hardcap</h2>
-              <h3>25 ETH</h3>
+              <h3>30 ETH</h3>
             </div>
             <div className="card">
               <h2>Max per Wallet</h2>
