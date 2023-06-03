@@ -582,6 +582,12 @@ input:focus {
     justify-content: center;
   }
 
+  .loading-spinner-small {
+    height: 4px;
+    width: 4px;
+  }
+  
+
   .dash-info {
     width: 85%;
     height: 90%;
@@ -621,7 +627,6 @@ input:focus {
 
   .bubble h2 {
     font-size: 18px;
-    color: #cb5519c1;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
@@ -684,7 +689,6 @@ input:focus {
 
   .special-card h2 {
     font-size: 25px;
-    color: #cb5519c1;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
@@ -710,7 +714,6 @@ input:focus {
 
   .card h2 {
     font-size: 25px;
-    color: #cb5519c1;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
@@ -890,7 +893,6 @@ input:focus {
 
   .special-card h2 {
     font-size: 18px;
-    color: #cb5519c1;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
