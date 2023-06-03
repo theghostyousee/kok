@@ -172,6 +172,18 @@ header ul li:hover {
   width: 50%;
 }
 
+@media screen and (max-width: 400px) {
+
+  .img-det {
+    transform: translate(-70%, -50%);
+  }
+  .img-det img {
+    width: 20px;
+    border-radius: 14px;
+  }
+}
+
+
 @media screen and (max-width: 1520px) {
 
   .img-det {
@@ -463,11 +475,11 @@ header ul li:hover {
   cursor: pointer;
   font-family: "VT323", monospace;
   font-size: max(calc(22 * var(--res)), 18px);
-  height: 48px;
+  height: 45%;
 
   line-height: 24px;
 
-  width: max(calc(100 * var(--res)), 120px);
+  width: 35%
 }
 
 .inpuut button:hover {
@@ -506,8 +518,8 @@ header ul li:hover {
   color: #fafafc;
   cursor: pointer;
   font-family: "VT323", monospace;
-  font-size: max(calc(22 * var(--res)), 18px);
-  height: 48px;
+  font-size: max(calc(22 * var(--res)), 15px);
+  height: 60%;
 
   line-height: 24px;
 
@@ -780,9 +792,9 @@ header ul li:hover {
   }
 
   .img-det img {
-    width: max(calc(300 * var(--res)), 150px);
+    width: max(calc(300 * var(--res)), 120px);
     border-radius: 14px;
-    transform: translate(30%, 20%);
+    transform: translate(45%, 20%);
   }
 
   .text p {
@@ -797,7 +809,9 @@ header ul li:hover {
 
 
 @media screen and (max-width: 600px) {
-
+  body{
+    overflow-x: hidden ;
+  }
 }
 
 
