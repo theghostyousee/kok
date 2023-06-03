@@ -1,9 +1,106 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 import Koko from "./media/logo.png";
 import Gud from "./media/gud.png";
+import Dex from "./media/dex_icon.svg";
+import Telegram from "./media/telegram.png";
+import Twitter from "./media/twitter.png";
+import Web3 from "web3";
 
 function Dashboard() {
+  const [isDepositActive, setDepositActive] = useState(true);
+  const [isWithdrawActive, setWithdrawActive] = useState(false);
+
+  const handleScrol = () => {
+    const element = document.getElementById("target-element");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScroll = () => {
+    const element = document.getElementById("target-element-1");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScrolll = () => {
+    const element = document.getElementById("target-element-2");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleDepositClick = () => {
+    setDepositActive(true);
+    setWithdrawActive(false);
+  };
+
+  const handleWithdrawClick = () => {
+    setDepositActive(false);
+    setWithdrawActive(true);
+  };
+
+  const [isDepositActive2, setDepositActive2] = useState(true);
+  const [isWithdrawActive2, setWithdrawActive2] = useState(false);
+
+  const handleDepositClick2 = () => {
+    setDepositActive2(true);
+    setWithdrawActive2(false);
+  };
+
+  const handleWithdrawClick2 = () => {
+    setDepositActive2(false);
+    setWithdrawActive2(true);
+  };
+
+  const [isDepositActive3, setDepositActive3] = useState(true);
+  const [isWithdrawActive3, setWithdrawActive3] = useState(false);
+
+  const handleDepositClick3 = () => {
+    setDepositActive3(true);
+    setWithdrawActive3(false);
+  };
+
+  const handleWithdrawClick3 = () => {
+    setDepositActive3(false);
+    setWithdrawActive3(true);
+  };
+
+  const handleClick = () => {
+    window.location.href = "https://app.uniswap.org/#/swap";
+  };
+
+  const [userAddress, setUserAddress] = useState(null);
+  const [buttonText, setButtonText] = useState("Connect Wallet");
+
+  async function connectWallet() {
+    try {
+      const web3 = new Web3(window.ethereum);
+
+      // Get the user's accounts
+      const accounts = await web3.eth.requestAccounts();
+
+      // Check if the user is on the Arbitrum chain
+      const chainId = await web3.eth.getChainId();
+      if (chainId !== 1) {
+        setButtonText("Wrong Network");
+        return;
+      }
+
+      // Update state with the user's address
+      setUserAddress(accounts[0]);
+      setButtonText(shortAddress(accounts[0]));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const shortAddress = (address) => {
+    return address ? address.slice(0, 6) + "..." + address.slice(-5) : "";
+  };
+
   return (
     <div className="wrap">
       <header>
@@ -11,12 +108,14 @@ function Dashboard() {
           <img src={Koko}></img>
         </div>
         <ul>
-          <li>Full Protek</li>
-          <li>Big Protek</li>
-          <li>Smol Protek</li>
+          <li onClick={handleScrol}>Full Protek</li>
+          <li onClick={handleScroll}>Big Protek</li>
+          <li onClick={handleScrolll}>Smol Protek</li>
         </ul>
         <div className="buttn-head">
-          <button>Connect Wallet</button>
+          <button onClick={() => window.ethereum && connectWallet()}>
+            <p>{userAddress ? shortAddress(userAddress) : buttonText}</p>
+          </button>
         </div>
       </header>
 
@@ -41,8 +140,8 @@ function Dashboard() {
               <div className="row">
                 <p>
                   This is having severe consequences, as the $KOKO supply is
-                  decreasing everyday by 7.5%. To safeguard your $KOKO, you
-                  can deposit them into secure vaults, of which there are three
+                  decreasing everyday by 7.5%. To safeguard your $KOKO, you can
+                  deposit them into secure vaults, of which there are three
                   types: Full, Big, and Smol Protek Vaults.
                 </p>
               </div>
@@ -98,7 +197,7 @@ function Dashboard() {
         </div>
 
         <div className="full-protek">
-          <h1>Full Protek</h1>
+          <h1 id="target-element">Full Protek</h1>
         </div>
         <div className="example">
           <div className="pair">
@@ -113,8 +212,22 @@ function Dashboard() {
           </div>
           <div className="deposit">
             <div className="deposit-title">
-              <h1>Deposit</h1>
-              <h1>Withdraw</h1>
+              <h1
+                style={{
+                  color: isDepositActive ? "rgb(0, 229, 255)" : "white",
+                }}
+                onClick={handleDepositClick}
+              >
+                Deposit
+              </h1>
+              <h1
+                style={{
+                  color: isWithdrawActive ? "rgb(0, 229, 255)" : "white",
+                }}
+                onClick={handleWithdrawClick}
+              >
+                Withdraw
+              </h1>
             </div>
             <div className="balance">
               <h1>Token balance:</h1>
@@ -125,7 +238,7 @@ function Dashboard() {
               <button>MAX</button>
             </div>
             <div className="get-koko">
-              <h1>Get $KOKO HERE ↗️</h1>
+              <h1 onClick={handleClick}>Get $KOKO HERE ↗️</h1>
             </div>
             <div className="last-button">
               <button>APPROVE</button>
@@ -134,7 +247,7 @@ function Dashboard() {
         </div>
 
         <div className="full-protek">
-          <h1>Big Protek</h1>
+          <h1 id="target-element-1">Big Protek</h1>
         </div>
         <div className="example">
           <div className="pair">
@@ -161,8 +274,22 @@ function Dashboard() {
           </div>
           <div className="deposit">
             <div className="deposit-title">
-              <h1>Deposit</h1>
-              <h1>Withdraw</h1>
+              <h1
+                style={{
+                  color: isDepositActive2 ? "rgb(0, 229, 255)" : "white",
+                }}
+                onClick={handleDepositClick2}
+              >
+                Deposit
+              </h1>
+              <h1
+                style={{
+                  color: isWithdrawActive2 ? "rgb(0, 229, 255)" : "white",
+                }}
+                onClick={handleWithdrawClick2}
+              >
+                Withdraw
+              </h1>
             </div>
             <div className="balance">
               <h1>Token balance:</h1>
@@ -173,7 +300,7 @@ function Dashboard() {
               <button>MAX</button>
             </div>
             <div className="get-koko">
-              <h1>Get $KOKO HERE ↗️</h1>
+              <h1 onClick={handleClick}>Get $KOKO HERE ↗️</h1>
             </div>
             <div className="last-button">
               <button>APPROVE</button>
@@ -182,7 +309,7 @@ function Dashboard() {
         </div>
 
         <div className="full-protek">
-          <h1>Smol Protek</h1>
+          <h1 id="target-element-2">Smol Protek</h1>
         </div>
         <div className="example">
           <div className="pair">
@@ -209,8 +336,22 @@ function Dashboard() {
           </div>
           <div className="deposit">
             <div className="deposit-title">
-              <h1>Deposit</h1>
-              <h1>Withdraw</h1>
+              <h1
+                style={{
+                  color: isDepositActive3 ? "rgb(0, 229, 255)" : "white",
+                }}
+                onClick={handleDepositClick3}
+              >
+                Deposit
+              </h1>
+              <h1
+                style={{
+                  color: isWithdrawActive3 ? "rgb(0, 229, 255)" : "white",
+                }}
+                onClick={handleWithdrawClick3}
+              >
+                Withdraw
+              </h1>
             </div>
             <div className="balance">
               <h1>Token balance:</h1>
@@ -221,7 +362,7 @@ function Dashboard() {
               <button>MAX</button>
             </div>
             <div className="get-koko">
-              <h1>Get $KOKO HERE ↗️</h1>
+              <h1 onClick={handleClick}>Get $KOKO HERE ↗️</h1>
             </div>
             <div className="last-button">
               <button>APPROVE</button>
@@ -229,6 +370,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }
