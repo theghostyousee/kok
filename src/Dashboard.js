@@ -101,7 +101,7 @@ function Dashboard() {
           <h1>Full Protek</h1>
         </div>
         <div className="example">
-          <div className="pair">
+          <div className="regrouper">
             <div className="card">
               <h2>Protek amount</h2>
               <h3>$-</h3>
