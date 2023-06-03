@@ -34,14 +34,14 @@ function Dashboard() {
             <div className="text">
               <div className="row">
                 <p>
-                  The infamous Rabbit Gang is causing chaos worldwide by
-                  stealing valuable $KARROT.
+                  The infamous Monkey Gang is causing chaos worldwide by
+                  stealing valuable $KOKO.
                 </p>
               </div>
               <div className="row">
                 <p>
-                  This is having severe consequences, as the $KARROT supply is
-                  decreasing everyday by 7.5%. To safeguard your $KARROT, you
+                  This is having severe consequences, as the $KOKO supply is
+                  decreasing everyday by 7.5%. To safeguard your $KOKO, you
                   can deposit them into secure vaults, of which there are three
                   types: Full, Big, and Smol Protek Vaults.
                 </p>
@@ -49,13 +49,13 @@ function Dashboard() {
 
               <div className="row">
                 <p>
-                  Don't want to be a farmer? Join the Rabbit Gang and start
-                  stealing $KARROT, only a 33% Full vault can stop them.
+                  Don't want to be a farmer? Join the Monkey Gang and start
+                  stealing $KOKO, only a 33% Full vault can stop them.
                 </p>
               </div>
 
               <div className="row">
-                <p>For more more information visit our litepaper here.</p>
+                <p> More information are coming our whitepaper.</p>
               </div>
             </div>
           </div>
