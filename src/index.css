@@ -87,13 +87,13 @@ header ul {
 }
 
 header ul li{
-  transition: 0.4;
+  transition: 0.4s;
 }
 
 header ul li:hover {
   cursor: pointer;
   font-size: 29px;
-  transition: 0.4;
+  transition: 0.4s;
   color: rgba(255, 255, 255, 0.845);
 }
 
