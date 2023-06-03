@@ -11,6 +11,7 @@ function Dashboard() {
   const [isDepositActive, setDepositActive] = useState(true);
   const [isWithdrawActive, setWithdrawActive] = useState(false);
 
+  
   const handleScrol = () => {
     const element = document.getElementById("target-element");
     if (element) {
@@ -72,9 +73,36 @@ function Dashboard() {
     window.location.href = "https://app.uniswap.org/#/swap";
   };
 
+  const [ethBalance, setEthBalance] = useState(0);
+
   const [userAddress, setUserAddress] = useState(null);
   const [buttonText, setButtonText] = useState("Connect Wallet");
+  const [inputValue, setInputValue] = useState(0);
 
+  useEffect(() => {
+    // Fetch and update the ETH balance when the user's address is available
+    if (userAddress) {
+      fetchEthBalance();
+    }
+  }, [userAddress]);
+
+  async function fetchEthBalance() {
+    try {
+      const web3 = new Web3(window.ethereum);
+
+      // Fetch the ETH balance in wei
+      const balanceWei = await web3.eth.getBalance(userAddress);
+
+      // Convert the balance from wei to ether and round to one decimal place
+      const balanceEth = web3.utils.fromWei(balanceWei, 'ether');
+      const roundedBalance = parseFloat(balanceEth).toFixed(4);
+
+      // Update state with the rounded ETH balance
+      setEthBalance(roundedBalance);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   async function connectWallet() {
     try {
       const web3 = new Web3(window.ethereum);
@@ -96,6 +124,13 @@ function Dashboard() {
       console.error(error);
     }
   }
+
+  const handleMaxButtonClick = () => {
+    const currentFees = 0.001; // Replace with the logic to retrieve the current fees
+
+    const maxAmount = ethBalance ; // Adjust this based on how you retrieve the current fees
+    setInputValue(maxAmount);
+  };
 
   const shortAddress = (address) => {
     return address ? address.slice(0, 6) + "..." + address.slice(-5) : "";
@@ -159,6 +194,41 @@ function Dashboard() {
             </div>
           </div>
         </div>
+
+        <div className="full-protek">
+          <h1 id="target-element">$KOKO Presale (Coming)</h1>
+        </div>
+        <div className="progress-bar" id="center"></div>
+        <div className="example">
+          <div className="pair">
+            <div className="card">
+              <h2>Hardcap</h2>
+              <h3>25 ETH</h3>
+            </div>
+            <div className="card">
+              <h2>Max per Wallet</h2>
+              <h3>1 ETH</h3>
+            </div>
+          </div>
+          <div className="deposit">
+            <div className="deposit-title">
+                <h1> Contribute for $KOKO </h1>
+            </div>
+            <div className="balance">
+              <h1>ETH balance:</h1>
+              <h1>{ethBalance}</h1>
+
+            </div>
+            <div className="inpuut">
+              <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+              <button onClick={handleMaxButtonClick}>MAX</button>
+            </div>
+            <div className="last-button">
+              <button>Buy (Coming) </button>
+            </div>
+          </div>
+        </div>
+
 
         <div className="dashboard">
           <h1>Dashboard</h1>
