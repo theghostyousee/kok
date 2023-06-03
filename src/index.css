@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
   align-items: center;
   flex-direction: column;
-  background: url("./media/beach.jpg") no-repeat center center /cover;
+  background: url("./media/beach.jpg") no-repeat center center / cover;
   position: relative;
 }
 
@@ -36,7 +36,7 @@ body:after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #141d26de; 
+  background-color: #141d26de;
   z-index: -1;
 }
 
@@ -86,7 +86,7 @@ header ul {
   font-size: max(calc(18 * var(--res)), 15px);
 }
 
-header ul li{
+header ul li {
   transition: 0.4s;
 }
 
@@ -125,8 +125,36 @@ header ul li:hover {
 .buttn-head button:hover {
   color: rgba(255, 255, 255, 0.845);
 }
+.loading-spinner-small {
+  height: 12px;
+  width: 12px;
+}
 
+.loading-spinner, .loading-spinner-small  {
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+  border: 7px solid #141d26;
+  border-radius: 50%;
+  border-top-color: #16c052c1;
+}
 
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
 
 .about-infos {
   display: flex;
@@ -189,7 +217,6 @@ header ul li:hover {
 }
 
 @media screen and (max-width: 400px) {
-
   .img-det {
     transform: translate(-70%, -50%);
   }
@@ -199,21 +226,17 @@ header ul li:hover {
   }
 }
 
-
 @media screen and (max-width: 1520px) {
-
   .img-det {
     transform: translate(-60%, -50%);
   }
 }
 
 @media screen and (max-width: 1275px) {
-
   .img-det {
     transform: translate(-70%, -50%);
   }
 }
-
 
 .img-det img {
   width: max(calc(300 * var(--res)), 400px);
@@ -240,18 +263,17 @@ header ul li:hover {
   margin-block-end: 0em;
 }
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width: 1400px) {
   .text p {
     font-size: 22px;
   }
 }
 
-@media screen and (max-width:1150px) {
+@media screen and (max-width: 1150px) {
   .text p {
     font-size: 16px;
   }
 }
-
 
 .row {
   display: flex;
@@ -325,8 +347,6 @@ header ul li:hover {
   margin-block-end: 0em;
 }
 
-
-
 .full-protek {
   width: 100%;
   height: 20%;
@@ -339,7 +359,7 @@ header ul li:hover {
   font-size: max(calc(40 * var(--res)), 36px);
 }
 
-.example{
+.example {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -349,7 +369,7 @@ header ul li:hover {
   max-width: 1500px;
 }
 
-.pair{
+.pair {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -358,8 +378,7 @@ header ul li:hover {
   align-items: center;
 }
 
-
-.row-1{
+.row-1 {
   display: flex;
   height: 100%;
   width: 100%;
@@ -367,7 +386,7 @@ header ul li:hover {
   align-items: center;
 }
 
-.special-card{
+.special-card {
   background-color: #1b2733;
   border-radius: 16px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -393,8 +412,7 @@ header ul li:hover {
   margin-block-end: 0em;
 }
 
-
-.card{
+.card {
   background-color: #1b2733;
   border-radius: 16px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -420,7 +438,7 @@ header ul li:hover {
   margin-block-end: 0em;
 }
 
-.deposit{
+.deposit {
   background-color: #1b2733;
   border-radius: 16px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -428,7 +446,7 @@ header ul li:hover {
   width: 48%;
 }
 
-.deposit-title{
+.deposit-title {
   width: 85%;
   justify-content: start;
   align-items: center;
@@ -438,16 +456,16 @@ header ul li:hover {
   display: flex;
 }
 
-.deposit-title h1{
+.deposit-title h1 {
   font-size: max(calc(22 * var(--res)), 18px);
 }
 
-.deposit-title h1:nth-child(1){
+.deposit-title h1:nth-child(1) {
   color: rgb(0, 229, 255);
   font-size: max(calc(22 * var(--res)), 18px);
 }
 
-.balance{
+.balance {
   width: 85%;
   justify-content: start;
   align-items: center;
@@ -457,15 +475,15 @@ header ul li:hover {
   display: flex;
 }
 
-.balance h1{
+.balance h1 {
   font-size: max(calc(22 * var(--res)), 18px);
 }
 
-.balance h1:nth-child(1){
+.balance h1:nth-child(1) {
   color: rgb(0, 229, 255);
 }
 
-.inpuut{
+.inpuut {
   display: flex;
   width: 90%;
   justify-content: space-between;
@@ -474,7 +492,7 @@ header ul li:hover {
   align-items: center;
 }
 
-.inpuut input{
+.inpuut input {
   width: 60%;
   height: 40%;
   border-radius: 10px;
@@ -505,14 +523,14 @@ input:focus {
 
   line-height: 24px;
 
-  width: 35%
+  width: 35%;
 }
 
 .inpuut button:hover {
   color: rgba(255, 255, 255, 0.845);
 }
 
-.get-koko{
+.get-koko {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -520,7 +538,7 @@ input:focus {
   height: 10%;
 }
 
-.get-koko h1{
+.get-koko h1 {
   font-size: max(calc(22 * var(--res)), 18px);
   margin-block-start: 0em;
   margin-block-end: 0em;
@@ -528,7 +546,7 @@ input:focus {
   cursor: pointer;
 }
 
-.last-button{
+.last-button {
   display: flex;
   width: 100%;
   height: 28%;
@@ -536,7 +554,7 @@ input:focus {
   align-items: center;
 }
 
-.last-button button{
+.last-button button {
   background: #ffffffc1;
   border-radius: 8px;
   box-shadow: inset -2px -2px 0 #dee5e0, inset 2px 2px 0 #fbfffe,
@@ -552,11 +570,7 @@ input:focus {
   width: max(calc(200 * var(--res)), 250px);
 }
 
-
-
-
 @media screen and (max-width: 800px) {
-
   .about-koko {
     width: 100%;
     height: 95%;
@@ -571,16 +585,16 @@ input:focus {
   .dash-info {
     width: 85%;
     height: 90%;
-  
+
     min-width: 400px;
     max-width: 1500px;
     display: flex;
     flex-direction: column;
     gap: 1.5vmin;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
   }
-  
+
   .duo {
     display: flex;
     flex-direction: column;
@@ -590,7 +604,7 @@ input:focus {
     align-items: center;
     justify-content: space-around;
   }
-  
+
   .bubble {
     background-color: #1b2733;
     border-radius: 16px;
@@ -611,7 +625,7 @@ input:focus {
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
+
   .bubble h3 {
     font-size: 18px;
     margin-block-start: 0em;
@@ -625,7 +639,7 @@ input:focus {
     margin-block-end: 0em;
   }
 
-  .example{
+  .example {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -633,12 +647,12 @@ input:focus {
     width: 80%;
 
     height: 100%;
-  
+
     min-width: 800px;
     max-width: 1500px;
   }
-  
-  .pair{
+
+  .pair {
     display: flex;
     flex-direction: column;
     height: 50%;
@@ -647,15 +661,15 @@ input:focus {
     align-items: center;
   }
 
-  .row-1{
+  .row-1 {
     display: flex;
     height: 50%;
     width: 70%;
     justify-content: space-between;
     align-items: center;
   }
-  
-  .special-card{
+
+  .special-card {
     background-color: #1b2733;
     border-radius: 16px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -674,15 +688,14 @@ input:focus {
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
+
   .special-card h3 {
     font-size: 20px;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
 
-  .card{
+  .card {
     background-color: #1b2733;
     border-radius: 16px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -694,31 +707,30 @@ input:focus {
     gap: 1vmin;
     align-items: center;
   }
-  
+
   .card h2 {
     font-size: 25px;
     color: #cb5519c1;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
+
   .card h3 {
     font-size: 25px;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
-  .deposit{
+
+  .deposit {
     background-color: #1b2733;
     border-radius: 16px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     height: 90%;
     width: 70%;
   }
-
 }
 
-@media screen and (max-width:680px) {
+@media screen and (max-width: 680px) {
   .text p {
     font-size: 15px;
     display: inline;
@@ -726,7 +738,6 @@ input:focus {
     margin-block-end: 0em;
   }
 }
-
 
 @media screen and (max-width: 880px) {
   header ul {
@@ -829,21 +840,15 @@ input:focus {
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
-
 }
 
-
 @media screen and (max-width: 600px) {
-  body{
-    overflow-x: hidden ;
+  body {
+    overflow-x: hidden;
   }
 }
 
-
-
 @media screen and (max-width: 530px) {
-
   .text p {
     font-size: 13.5px;
     display: inline;
@@ -851,7 +856,7 @@ input:focus {
     margin-block-end: 0em;
   }
 
-  .pair{
+  .pair {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -861,8 +866,7 @@ input:focus {
     align-items: center;
   }
 
-  
-  .row-1{
+  .row-1 {
     display: flex;
     height: 50%;
     width: 100;
@@ -870,7 +874,7 @@ input:focus {
     gap: 1vmin;
     align-items: center;
   }
-  .special-card{
+  .special-card {
     background-color: #1b2733;
     border-radius: 6px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -883,21 +887,21 @@ input:focus {
     gap: 0.4vmin;
     align-items: center;
   }
-  
+
   .special-card h2 {
     font-size: 18px;
     color: #cb5519c1;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
+
   .special-card h3 {
     font-size: 18px;
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  
-  .example{
+
+  .example {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -907,5 +911,4 @@ input:focus {
     gap: 1.3vmin;
     max-width: 1500px;
   }
-
 }

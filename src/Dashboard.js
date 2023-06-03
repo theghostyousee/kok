@@ -104,7 +104,7 @@ function Dashboard() {
           <div className="pair">
             <div className="card">
               <h2>Protek amount</h2>
-              <h3>$-</h3>
+              <div className="loading-spinner-small"></div>
             </div>
             <div className="card">
               <h2>TVL</h2>
@@ -141,21 +141,21 @@ function Dashboard() {
             <div className="row-1">
               <div className="special-card">
                 <h2>Protek amount</h2>
-                <h3>$-</h3>
+                <div className="loading-spinner-small"></div>
               </div>
               <div className="special-card">
-                <h2>TVL</h2>
-                <h3>$-</h3>
+                <h2>Kokonuts accumulator</h2>
+                <div className="loading-spinner-small"></div>
               </div>
             </div>
             <div className="row-1">
               <div className="special-card">
-                <h2>Protek amount</h2>
-                <h3>$-</h3>
+                <h2>Excpected APR</h2>
+                <h3>%</h3>
               </div>
               <div className="special-card">
-                <h2>TVL</h2>
-                <h3>$-</h3>
+                <h2>TVL (LP)</h2>
+                <div className="loading-spinner-small"></div>
               </div>
             </div>
           </div>
@@ -192,14 +192,14 @@ function Dashboard() {
                 <h3>$-</h3>
               </div>
               <div className="special-card">
-                <h2>TVL</h2>
-                <h3>$-</h3>
+                <h2>Kokonuts accumulator</h2>
+                <div className="loading-spinner-small"></div>
               </div>
             </div>
             <div className="row-1">
               <div className="special-card">
-                <h2>Protek amount</h2>
-                <h3>$-</h3>
+                <h2>Expected APR</h2>
+                <h3>%</h3>
               </div>
               <div className="special-card">
                 <h2>TVL</h2>
