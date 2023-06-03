@@ -154,7 +154,7 @@ function Dashboard() {
               </div>
 
               <div className="row">
-                <p> More information are coming our whitepaper.</p>
+                <p> More information are coming with our whitepaper.</p>
               </div>
             </div>
           </div>
