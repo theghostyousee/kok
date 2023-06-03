@@ -189,7 +189,7 @@ function Dashboard() {
               </div>
 
               <div className="row">
-                <p> More information are coming with our whitepaper.</p>
+                <p> You can learn more by vising our <a href="https://kokonuts.gitbook.io/kokonuts/" >whitepaper. </a></p>
               </div>
             </div>
           </div>
