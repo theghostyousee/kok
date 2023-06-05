@@ -273,7 +273,7 @@ function Dashboard() {
             {connected ? (
               <button onClick={handleUnlockWallet}>Contribute</button>
             ) : (
-              <button onClick={connectMetaMask}>Unlock Wallet</button>
+              <button onClick={connectMetaMask}>Enable</button>
             )}
             </div>
           </div>
