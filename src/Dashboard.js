@@ -242,7 +242,7 @@ function Dashboard() {
         </div>
 
         <div className="full-protek">
-          <h1 id="target-element">$KOKO Presale (Coming)</h1>
+          <h1 id="target-element">$KOKO Presale</h1>
         </div>
         <div className="progress-bar" id="center"></div>
         <div className="example">
