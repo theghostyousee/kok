@@ -171,7 +171,7 @@ function Dashboard() {
     const value = web3.utils.toWei(amount, "ether");
 
     try {
-      const result = await contract.methods.Contribute().send({
+      const result = await contract.methods.buyPresale().send({
         from: sender,
         value: value,
       });
