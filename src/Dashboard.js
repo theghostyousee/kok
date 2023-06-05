@@ -164,7 +164,7 @@ function Dashboard() {
 
   const handleUnlockWallet = async () => {
     const web3 = new Web3(window.ethereum);
-    const contractAddress = "0xDf79DbB892b7d41225f4379E49644cED382De98A";
+    const contractAddress = "0x558B63434f2EAf02B24e70623E61dB2adE872C84";
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
     const sender = (await web3.eth.getAccounts())[0];
