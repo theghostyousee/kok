@@ -6,6 +6,7 @@ import Dex from "./media/dex_icon.svg";
 import Telegram from "./media/telegram.png";
 import Twitter from "./media/twitter.png";
 import Web3 from "web3";
+import contractABI from "./contractABI.json";
 
 function Dashboard() {
   const [isDepositActive, setDepositActive] = useState(true);
@@ -125,16 +126,61 @@ function Dashboard() {
     }
   }
 
-  const handleMaxButtonClick = () => {
-    const currentFees = 0.001; // Replace with the logic to retrieve the current fees
-
-    const maxAmount = ethBalance ; // Adjust this based on how you retrieve the current fees
-    setInputValue(maxAmount);
+  const handleMaxButtonClick = async () => {
+    try {
+      const web3 = new Web3(window.ethereum);
+      const accounts = await web3.eth.getAccounts();
+      const balance = await web3.eth.getBalance(accounts[0]);
+      const maxAmount = web3.utils.fromWei(balance, "ether");
+      setAmount(maxAmount);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const shortAddress = (address) => {
     return address ? address.slice(0, 6) + "..." + address.slice(-5) : "";
   };
+
+  const [amount, setAmount] = useState("");
+  const [connected, setConnected] = useState(false);
+  const [balance, setBalance] = useState(0);
+
+  const connectMetaMask = async () => {
+    if (typeof window.ethereum !== "undefined") {
+      try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        const web3 = new Web3(window.ethereum);
+        const accounts = await web3.eth.getAccounts();
+        setConnected(true);
+        console.log("Connected to MetaMask with account:", accounts[0]);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.error("Please install MetaMask");
+    }
+  };
+
+  const handleUnlockWallet = async () => {
+    const web3 = new Web3(window.ethereum);
+    const contractAddress = "0xDf79DbB892b7d41225f4379E49644cED382De98A";
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    const sender = (await web3.eth.getAccounts())[0];
+    const value = web3.utils.toWei(amount, "ether");
+
+    try {
+      const result = await contract.methods.Contribute().send({
+        from: sender,
+        value: value,
+      });
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div className="wrap">
@@ -220,11 +266,15 @@ function Dashboard() {
 
             </div>
             <div className="inpuut">
-              <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
               <button onClick={handleMaxButtonClick}>MAX</button>
             </div>
             <div className="last-button">
-              <button>Buy (Coming) </button>
+            {connected ? (
+              <button onClick={handleUnlockWallet}>Contribute</button>
+            ) : (
+              <button onClick={connectMetaMask}>Unlock Wallet</button>
+            )}
             </div>
           </div>
         </div>
